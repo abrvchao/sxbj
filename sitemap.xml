@@ -28,6 +28,48 @@
   </url>
 
   
+  <url>
+    <loc>http://example.com/tags/AI/</loc>
+    <lastmod>2024-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/models/</loc>
+    <lastmod>2024-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Ollama/</loc>
+    <lastmod>2024-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Llama3-1/</loc>
+    <lastmod>2024-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/OpenWebUI/</loc>
+    <lastmod>2024-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>http://example.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2024-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>

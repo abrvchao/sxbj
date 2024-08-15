@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-15T01:38:41.724Z</updated>
+  <updated>2024-08-15T12:45:32.333Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,15 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>windows下部署Ollama+Llama3+OpenUI</title>
     <link href="http://example.com/2024/08/15/windows%E4%B8%8B%E9%83%A8%E7%BD%B2Ollama+llama3+OpenWebUI/"/>
     <id>http://example.com/2024/08/15/windows%E4%B8%8B%E9%83%A8%E7%BD%B2Ollama+llama3+OpenWebUI/</id>
-    <published>2024-08-15T01:38:41.724Z</published>
-    <updated>2024-08-15T01:38:41.724Z</updated>
+    <published>2024-08-15T03:31:24.000Z</published>
+    <updated>2024-08-15T12:45:32.333Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ollama 是一个开源的人工智能工具，旨在简化机器学习模型的使用和部署。它提供了一个用户友好的界面，允许开发者和数据科学家轻松地加载、运行和管理不同的机器学习模型，尤其是在自然语言处理和计算机视觉领域。Ollama 支持多种模型格式，并且可以在本地或云端运行，帮助用户快速集成 AI 功能到他们的应用程序中。<br>在本地运行大语言模型有诸多优点：<br>比如可以保护隐私、不会产生费用、可以无视网络问题、可以尝鲜各种开源模型等。<br>Ollama支持当前主要的开源大模型， 比如llama2、千文qwen、mistral等，可以在Windows、Linux、MacOS系统上进行部署。稳定性和便利性都非常不错，下面就来分享一下它在Windows系统上的安装与应用。</p><h1>Ollama 下载安装</h1><p>下载地址：<a href="https://ollama.com/download/windows">ollama下载地址</a><br>安装非常简单，exe文件直接下一步，下一步就可以。</p><h2 id="配置环境变量">配置环境变量</h2><p><img src="https://raw.githubusercontent.com/brvchaos/image/main/202408151705234.png" alt="图片"></p><p>OLLAMA_HOST:这个变量定义了Olama监听的网络接口。通过设置OLLAMA HOST=0.0.0.0，我们可以让Olama监听所有可用的网络接口，从而允许外部网络访问。<br>OLLAMA_MODELS:这个变量指定了模型镜像的存储路径，通过设置OLLAMA MODELS=F:OlamaCache，我们可以将模型镜像存储在E盘，避免C盘空间不足的问题。<br>OLLAMA_KEEP ALIVE:这个变量控制模型在内存中的存活时间。设置OLLAMA KEEP ALIVE=24h可以让模型在内存中保持24小时，提高访问速度。<br>OLLAMA_PORT:这个变量允许我们更改0lama的默认端口。例如，设置OLLAMA PORT=8080可以将服务端口从默认的11434更改为8080。<br>OLLAMA_NUM PARALLEL:这个变量决定了Olama可以同时处理的用户请求数量。设置OLLAMA NUM PARALLEL=4可以让Ollama同时处理两个并发请求，<br>OLLAMA_MAX LOADED MODELS:这个变量限制了Ollama可以同时加载的模型数量。设置OLLAMA MAX LOADED MODELS=4可以确保系统资源得到合理分配。</p><p>比如说，一个大模型动不动几十G，你怕当前盘装不下，可以配置OLLAMA_MODELS   把模型路径换成D:/ollama。</p><h1>llama3.1 模型安装</h1><p>安装完Ollama后，我们打开一个终端，以powershell或者CMD为例：</p><p>按住win+R键调用“运行”，在命令行中输入：</p><blockquote><p><code>ollama pull &lt;model_name&gt;:&lt;model_version&gt;</code><br><img src="https://raw.githubusercontent.com/brvchaos/image/main/202408151739490.png" alt="链接"></p></blockquote><p>下载完模型，其实就可以通过Powershell试用了。在Powershell下执行：</p><blockquote><p><code>ollama run &lt;model_name&gt;</code></p></blockquote><p>到此为止，我们只能在终端使用，如果想要和ChatGPT那样使用UI页面进行交互，有很多种方法，比如Nextchat、jan，Open WebUI。本教程以Open WebUI这个项目为例，可以理解为一开始就是专门适配Ollama的WebUI，大家也可以选择其他的WebUI，之后有机会也可以分享给大家。</p><h1>docker desktop 下载安装</h1><h2 id="启动Hyper-V">启动Hyper-V</h2><p>打开控制面板，在“程序与功能”页面选择启用或关闭windows功能，勾选Hyper-V、虚拟机平台、Linux子系统并点击确认。<br>如果不是专业版windows系统，勾选适用linux的windows子系统。<br>重启计算机。</p><h2 id="安装WSL">安装WSL</h2><p>打开CMD或者powershell，以管理员的身份启动命令窗口，输入</p><blockquote><p><code>wsl --update</code><br>安装<br><code>wsl --install</code><br>重启电脑</p></blockquote><h2 id="访问Docker官网进行下载">访问Docker官网进行下载</h2><p>点击下载链接：<a href="https://docs.docker.com/desktop/install/windows-install/">链接</a><br>这个不要用IDM下载，不要用迅雷下载，直接用浏览器自带的下载功能，另外，docker官网访问需要梯子，请自备。<br>双击进行安装，安装后提示重启，重启后点击桌面图标，选择不注册直接登录就可以。<br>打开docker desktop后，左下角显示绿色running就代表成功。</p><h1>Open WebUI 部署配置</h1><p>docker desktop安装完成后即可在cmd当中进行使用docker，使用docker -v 出现版本号证明docker安装成功可用。<br>如果你的Ollama和Open WebUI在同一台主机，那使用下面显示的这一行命令就可以在本地快速进行部署：</p><blockquote><p><code>docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</code></p></blockquote><p>等待安装完成后，在Docker Desktop中可以看到Open WebUI的web界面地址为：<a href="https://localhost:3000">OPenwebUI</a> ，点击后出现登录界面，点击sign up注册，登录即可使用.</p><p><img src="https://raw.githubusercontent.com/brvchaos/image/main/202408152040441.png" alt="图片"></p>]]></content>
+    
+    
+    <summary type="html">本文是主要是教小白利用Ollama进行本地化部署大模型的。</summary>
     
     
     
+    <category term="大模型" scheme="http://example.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
     
+    
+    <category term="AI" scheme="http://example.com/tags/AI/"/>
+    
+    <category term="models" scheme="http://example.com/tags/models/"/>
+    
+    <category term="Ollama" scheme="http://example.com/tags/Ollama/"/>
+    
+    <category term="Llama3.1" scheme="http://example.com/tags/Llama3-1/"/>
+    
+    <category term="OpenWebUI" scheme="http://example.com/tags/OpenWebUI/"/>
     
   </entry>
   

@@ -1,3 +1,9 @@
 http://example.com/2024/08/15/windows%E4%B8%8B%E9%83%A8%E7%BD%B2Ollama+llama3+OpenWebUI/
 http://example.com/2024/08/04/hello-world/
 http://example.com/
+http://example.com/tags/AI/
+http://example.com/tags/models/
+http://example.com/tags/Ollama/
+http://example.com/tags/Llama3-1/
+http://example.com/tags/OpenWebUI/
+http://example.com/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/
