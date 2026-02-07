@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-02-02T03:40:20.061Z</updated>
+  <updated>2026-02-07T16:00:44.437Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,15 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>金银贵金属价格实时推送与监控系统</title>
     <link href="http://example.com/2026/02/02/%E8%B4%B5%E9%87%91%E5%B1%9E%E5%AE%9E%E6%97%B6%E4%BB%B7%E6%A0%BC%E7%9B%91%E6%8E%A7%E4%B8%8E%E6%8E%A8%E9%80%81/"/>
     <id>http://example.com/2026/02/02/%E8%B4%B5%E9%87%91%E5%B1%9E%E5%AE%9E%E6%97%B6%E4%BB%B7%E6%A0%BC%E7%9B%91%E6%8E%A7%E4%B8%8E%E6%8E%A8%E9%80%81/</id>
-    <published>2026-02-02T03:40:20.061Z</published>
-    <updated>2026-02-02T03:40:20.061Z</updated>
+    <published>2026-02-02T12:31:24.000Z</published>
+    <updated>2026-02-07T16:00:44.437Z</updated>
+    
+    <content type="html"><![CDATA[<h1>前言</h1><p>最近因为金银价格剧烈震荡，本人也是对贵金属很感兴趣，作为传统投资的重头戏，估计大家跟我一样，也是比较关注的。所以就想着自己写一套程序通过微信推送给自己。说干就干。我把方法放到下面。</p><h1>国外接口itick</h1><p>一开始想着是通过国外的网站 ，优点是免费，允许高频调用，但是后来发现授权token只有7天的有效期，要不停的去续约才行。后来就放弃了。如果土豪请继续使用itick，如果不怕麻烦也可以无限续杯7天itick 综合免费套餐<br><img src="https://kakanb.com/docs/1770474821208.png" alt=""><br><img src="https://kakanb.com/docs/1770475060210.png" alt=""></p><h1>国内接口</h1><p>想了想我决定还是先用一下国内的免费接口吧，找了半天锁定了极速数据和天地聚合的免费接口。两个叠加，先用起来。<br>首先是极速数据的官网：<a href="https://www.jisuapi.com/">https://www.jisuapi.com/</a><br>然后是聚合数据的官网：<a href="https://www.juhe.cn/">https://www.juhe.cn/</a><br>账号和API接口请自行注册。</p><h1>思路</h1><p>这章节最后会放在最上面，思路是通过接口获取国内、国际金银等贵金属实时价格，通过汇率和单位转换把国际金银价格转化为 元/克。最后通过cloudflare workers部署，然后微信推给自己。<br>代码如下：</p>]]></content>
+    
+    
+    <summary type="html">本文是主要是教小白如何从0开始搭建自己的导航站hexo。</summary>
     
     
     
+    <category term="Development" scheme="http://example.com/categories/Development/"/>
     
+    
+    <category term="godaddy" scheme="http://example.com/tags/godaddy/"/>
+    
+    <category term="AI" scheme="http://example.com/tags/AI/"/>
+    
+    <category term="API" scheme="http://example.com/tags/API/"/>
+    
+    <category term="gold price" scheme="http://example.com/tags/gold-price/"/>
+    
+    <category term="sliver price" scheme="http://example.com/tags/sliver-price/"/>
     
   </entry>
   
