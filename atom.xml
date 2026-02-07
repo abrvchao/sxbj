@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-01-20T15:12:17.441Z</updated>
+  <updated>2026-02-02T03:40:20.061Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2026/02/02/%E8%B4%B5%E9%87%91%E5%B1%9E%E5%AE%9E%E6%97%B6%E4%BB%B7%E6%A0%BC%E7%9B%91%E6%8E%A7%E4%B8%8E%E6%8E%A8%E9%80%81/"/>
+    <id>http://example.com/2026/02/02/%E8%B4%B5%E9%87%91%E5%B1%9E%E5%AE%9E%E6%97%B6%E4%BB%B7%E6%A0%BC%E7%9B%91%E6%8E%A7%E4%B8%8E%E6%8E%A8%E9%80%81/</id>
+    <published>2026-02-02T03:40:20.061Z</published>
+    <updated>2026-02-02T03:40:20.061Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>实时发送黄金价格到自己的微信</title>
@@ -38,6 +51,35 @@
     <category term="Silver" scheme="http://example.com/tags/Silver/"/>
     
     <category term="API" scheme="http://example.com/tags/API/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用cloudflare workers从0开始搭建导航站</title>
+    <link href="http://example.com/2026/01/06/%E5%AF%BC%E8%88%AA%E7%AB%99%E4%BB%8E0%E6%90%AD%E5%BB%BA/"/>
+    <id>http://example.com/2026/01/06/%E5%AF%BC%E8%88%AA%E7%AB%99%E4%BB%8E0%E6%90%AD%E5%BB%BA/</id>
+    <published>2026-01-06T13:31:24.000Z</published>
+    <updated>2026-02-02T12:41:57.202Z</updated>
+    
+    <content type="html"><![CDATA[<p>项目地址：<code>java https://github.com/abrvchao/nav</code></p><h1>🚀 快速开始</h1><p>在线体验<br>访问示例网站：<a href="https://dk.eyey.site">https://dk.eyey.site</a><br>点击控制台,分别创建表sites，pending_sites,看下图表,添加字段，注意设置主密钥!</p><h1>📦 部署指南</h1><p>cloudflare创建数据库<br>步骤 1: 创建DB数据库和KV键值对<br>在 Cloudflare 控制台，进入 Workers &amp; Pages -&gt; D1。<br>创建D1数据库,输入名称book ,点击创建!<br><img src="https://kakanb.com/docs/1770026739564.png" alt=""></p><p>点击控制台,分别创建表sites，pending_sites,看下图表,添加字段，注意设置主密钥!<br>表名称: sites<br><img src="https://kakanb.com/docs/1770030799623.png" alt=""><br><img src="https://kakanb.com/docs/1770031027302.png" alt=""><br>表名称: pending_sites<br><img src="https://kakanb.com/docs/1770031070725.png" alt=""><br><img src="https://kakanb.com/docs/1770031138724.png" alt=""><br>创建KV,名称NAV_AUTH,根据自己实际情况修改密钥的值,这是后续用于登陆后台管理的账号密码!<br><img src="https://kakanb.com/docs/1770031237965.png" alt=""><br>填入：admin_username ，admin_password<br><img src="https://kakanb.com/docs/1770031285050.png" alt=""><br>或者通过代码直接生成数据库表</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建已发布网站表</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> sites (</span><br><span class="line">id <span class="type">INTEGER</span> <span class="keyword">PRIMARY</span> KEY AUTOINCREMENT,</span><br><span class="line">name TEXT <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">url TEXT <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">logo TEXT,</span><br><span class="line">&quot;desc&quot; TEXT,</span><br><span class="line">catelog TEXT <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">status TEXT,</span><br><span class="line">sort_order <span class="type">INTEGER</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">9999</span>,</span><br><span class="line">create_time DATETIME <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">update_time DATETIME <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建待审核网站表</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> pending_sites (</span><br><span class="line">id <span class="type">INTEGER</span> <span class="keyword">PRIMARY</span> KEY AUTOINCREMENT,</span><br><span class="line">name TEXT <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">url TEXT <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">logo TEXT,</span><br><span class="line">&quot;desc&quot; TEXT,</span><br><span class="line">catelog TEXT <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">status TEXT,</span><br><span class="line">create_time DATETIME <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建分类排序表</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> category_orders (</span><br><span class="line">catelog TEXT <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">sort_order <span class="type">INTEGER</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">9999</span></span><br><span class="line">); </span><br></pre></td></tr></table></figure><h1>创建workers</h1><p>点击hello worker创建一个workers,输入自定义名称进行创建!<br><img src="https://kakanb.com/docs/1770032362063.png" alt=""><br>点击编辑代码,将本项目中的worker.js代码复制粘贴进去,替换原有代码,点击部署!<br>PS:可以到上面的项目地址里去找代码<br><img src="https://kakanb.com/docs/1770032443626.png" alt=""><br>然后前往设置中,绑定KV（名称：NAV_AUTH）和DB(名称：NAV_DB)<br><img src="https://kakanb.com/docs/1770032443626.png" alt=""><br>然后访问页面即可,此时由于没有添加书签,访问首页会提示没有数据,可以前往admin后台登陆之后,添加一个书签,即可看到页面!<br><img src="https://kakanb.com/docs/1770032510313.png" alt=""><br>页面提示这个信息!<br>“No site configuration found.”<br>网址后面拼接 /admin 即可进入后台页面,输入在DB中设置的密码,然后进行添加!<br><img src="https://kakanb.com/docs/1770032608110.png" alt=""><br>返回首页，就能看到我网站了。<br><img src="https://kakanb.com/docs/1770012927077.png" alt=""></p>]]></content>
+    
+    
+    <summary type="html">本文是主要是教小白如何从0开始搭建自己的导航站。</summary>
+    
+    
+    
+    <category term="Website Development" scheme="http://example.com/categories/Website-Development/"/>
+    
+    
+    <category term="sign up" scheme="http://example.com/tags/sign-up/"/>
+    
+    <category term="website" scheme="http://example.com/tags/website/"/>
+    
+    <category term="godaddy" scheme="http://example.com/tags/godaddy/"/>
+    
+    <category term="Tencent Cloud Domain Name" scheme="http://example.com/tags/Tencent-Cloud-Domain-Name/"/>
+    
+    <category term="navigation station" scheme="http://example.com/tags/navigation-station/"/>
     
   </entry>
   
@@ -67,35 +109,6 @@
     <category term="抖音国际版" scheme="http://example.com/tags/%E6%8A%96%E9%9F%B3%E5%9B%BD%E9%99%85%E7%89%88/"/>
     
     <category term="抖音破解版" scheme="http://example.com/tags/%E6%8A%96%E9%9F%B3%E7%A0%B4%E8%A7%A3%E7%89%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用aws s3 从0开始搭建导航站</title>
-    <link href="http://example.com/2025/07/06/%E5%AF%BC%E8%88%AA%E7%AB%99%E4%BB%8E0%E6%90%AD%E5%BB%BA/"/>
-    <id>http://example.com/2025/07/06/%E5%AF%BC%E8%88%AA%E7%AB%99%E4%BB%8E0%E6%90%AD%E5%BB%BA/</id>
-    <published>2025-07-06T12:31:24.000Z</published>
-    <updated>2025-07-06T14:04:35.688Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="注册">注册</h2>]]></content>
-    
-    
-    <summary type="html">本文是主要是教小白如何从0开始搭建自己的导航站hexo。</summary>
-    
-    
-    
-    <category term="Website Development" scheme="http://example.com/categories/Website-Development/"/>
-    
-    
-    <category term="sign up" scheme="http://example.com/tags/sign-up/"/>
-    
-    <category term="website" scheme="http://example.com/tags/website/"/>
-    
-    <category term="godaddy" scheme="http://example.com/tags/godaddy/"/>
-    
-    <category term="Tencent Cloud Domain Name" scheme="http://example.com/tags/Tencent-Cloud-Domain-Name/"/>
-    
-    <category term="navigation station" scheme="http://example.com/tags/navigation-station/"/>
     
   </entry>
   
